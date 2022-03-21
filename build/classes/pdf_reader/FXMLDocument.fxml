@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdf_reader.FXMLDocumentController">
+   <children>
+      <AnchorPane fx:id="dragPdf" layoutX="44.0" layoutY="35.0" onDragDropped="#dropEvent" onDragOver="#dragOver" prefHeight="280.0" prefWidth="283.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="35.0" />
+      <AnchorPane fx:id="dragFile" layoutX="373.0" layoutY="35.0" prefHeight="280.0" prefWidth="283.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="373.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="35.0" />
+      <AnchorPane layoutX="44.0" layoutY="353.0" prefHeight="133.0" prefWidth="611.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="45.0">
+         <children>
+            <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text">
+               <font>
+                  <Font name="Berlin Sans FB" size="16.0" />
+               </font>
+            </Text>
+            <JFXComboBox layoutX="12.0" layoutY="54.0" promptText="Pages Per Side" />
+            <JFXComboBox layoutX="220.0" layoutY="54.0" promptText="One Side / Double Side" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
