@@ -1,11 +1,23 @@
 .hline{
-    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0, #FFCC70)
+    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0, #FFCC70);
 }
 .vline{
-    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0)
+    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0);
 }
 .bal{
-    -fx-fill: linear-gradient(to left top, #4158D0, #C850C0)
+    -fx-fill: linear-gradient(to left top, #4158D0, #C850C0);
 }
-
-
+.pan{
+    -fx-background-color: #46cd80;
+    
+}
+.mpan{
+      -fx-background-color:   #323232;
+}
+.pan1{
+    -fx-border-radius: 20;
+    -fx-border-width:  4;
+    -fx-border-color: white;
+    -fx-border-style: dotted;
+   
+}                                   

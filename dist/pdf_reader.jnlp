@@ -10,8 +10,10 @@
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="lib\commons-logging-1.2.1.1.jar" size="60686" download="eager" />
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
+    <jar href="lib\jfoenix-8.0.9.jar" size="2688910" download="eager" />
     <jar href="lib\pdfbox-2.0.3.jar" size="2441253" download="eager" />
-    <jar href="pdf_reader.jar" size="8176" download="eager" />
+    <jar href="pdf_reader.jar" size="45025" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="pdf_reader" >
     <param name="requiredFXVersion" value="8.0+"/>

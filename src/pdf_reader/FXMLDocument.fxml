@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import org.controlsfx.control.textfield.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
@@ -9,26 +12,83 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdf_reader.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mpan" stylesheets="@stiles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdf_reader.FXMLDocumentController">
    <children>
-      <AnchorPane fx:id="dragPdf" layoutX="44.0" layoutY="35.0" onDragDropped="#dropEvent" onDragOver="#dragOver" prefHeight="280.0" prefWidth="283.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="373.0" AnchorPane.topAnchor="35.0">
-         <padding>
-            <Insets right="50.0" />
-         </padding></AnchorPane>
-      <AnchorPane fx:id="dragFile" layoutX="373.0" layoutY="35.0" prefHeight="280.0" prefWidth="283.0" style="-fx-background-color: red;" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="373.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="35.0">
-         <padding>
-            <Insets left="50.0" />
-         </padding></AnchorPane>
-      <AnchorPane layoutX="44.0" layoutY="353.0" prefHeight="133.0" prefWidth="611.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="45.0">
+      <GridPane alignment="CENTER_LEFT" hgap="30.0" layoutX="2.0" layoutY="30.0" prefHeight="236.0" prefWidth="760.0" AnchorPane.bottomAnchor="334.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="248.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="232.0" minHeight="0.0" prefHeight="232.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text">
-               <font>
-                  <Font name="Berlin Sans FB" size="16.0" />
-               </font>
-            </Text>
-            <JFXComboBox layoutX="12.0" layoutY="54.0" promptText="Pages Per Side" />
-            <JFXComboBox layoutX="220.0" layoutY="54.0" promptText="One Side / Double Side" />
+            <AnchorPane fx:id="dragPdf" onDragDropped="#dropEvent" onDragEntered="#dragEnter" onDragExited="#dragExit" onDragOver="#dragOver" prefHeight="114.0" prefWidth="335.0" stylesheets="@stiles/style.css" GridPane.rowSpan="2147483647">
+               <children>
+                  <HBox alignment="CENTER" disable="true" prefHeight="237.0" prefWidth="368.0" styleClass="pan1" stylesheets="@stiles/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Group>
+                           <children>
+                              <ImageView fx:id="img" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="107.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="50.0">
+                                 <image>
+                                    <Image url="@stiles/move.png" />
+                                 </image>
+                              </ImageView>
+                              <Text disable="true" layoutX="81.0" layoutY="130.0" opacity="0.5" stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag Folder Here" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="97.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="dragFile" onDragEntered="#dragEnterS" onDragExited="#dragExitS" prefHeight="51.0" prefWidth="98.0" stylesheets="@stiles/style.css" GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
+               <children>
+                  <HBox alignment="CENTER" layoutX="1.0" prefHeight="168.0" prefWidth="267.0" styleClass="pan1" stylesheets="@stiles/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Group>
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="454.0" layoutY="-152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@stiles/moving.png" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="431.0" layoutY="-65.0" opacity="0.5" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag PDF Here">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
          </children>
-      </AnchorPane>
+      </GridPane>
+      <Text fx:id="containBox" layoutX="167.0" layoutY="356.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="text" wrappingWidth="465.0" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="167.0">
+         <font>
+            <Font name="Berlin Sans FB" size="27.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER" layoutY="492.0" prefHeight="88.0" prefWidth="800.0" spacing="300.0" AnchorPane.bottomAnchor="88.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <JFXComboBox fx:id="pagePerSideBox" prefHeight="47.0" prefWidth="165.0" promptText="Pages Per Side" style="-fx-background-size: 10;" stylesheets="@stiles/style.css" />
+            <JFXComboBox fx:id="sideCountBox" prefHeight="47.0" prefWidth="165.0" promptText="One Side / Double Side" styleClass="s" stylesheets="@stiles/style.css" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="2.0" layoutY="512.0" prefHeight="88.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <CustomTextField fx:id="pageCountBox" editable="false" prefHeight="40.0" prefWidth="274.0" text="You want 55 Sheets">
+               <font>
+                  <Font name="Eras Bold ITC" size="21.0" />
+               </font>
+            </CustomTextField>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
