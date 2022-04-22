@@ -1,0 +1,45 @@
+.hline{
+    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0, #FFCC70);
+}
+.vline{
+    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0);
+}
+.bal{
+    -fx-fill: linear-gradient(to left top, #4158D0, #C850C0);
+}
+.pan{
+    -fx-background-color: #46cd80;
+
+}
+.mpan{
+    -fx-background-color:   #323232;
+}
+.pan1{
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-background-color: #1c1b1b;
+    -fx-border-width:  5;
+    -fx-border-color: white;
+    -fx-border-style: dotted;
+}
+.scount{
+    -fx-background-color: white;
+    -fx-background-radius: 10;   
+}
+.bottomPanel{
+    -fx-background-color: #1c1b1b;
+}
+.field{
+    -fx-background-color:   #323232;
+    -fx-fill: #1c1b1b
+}
+.btn{
+    -fx-background-color:  #504a55;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+}
+.btn2{
+    -fx-background-color:  #c5bfc9;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}

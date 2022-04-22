@@ -5,18 +5,22 @@
  */
 package pdf_reader;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
-
 
 /**
  * FXML Controller class
@@ -24,7 +28,7 @@ import javafx.util.Duration;
  * @author Jana
  */
 public class FXMLController implements Initializable {
- 
+
     @FXML
     private Circle ro1;
     @FXML
@@ -47,32 +51,64 @@ public class FXMLController implements Initializable {
     private Circle r3;
     @FXML
     private Circle r4;
+
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       slider(r1,150,1);
-       slider(r2,-100,1.2);
-       slider(r3,100,1.2);
-       slider(r4,-135,1);
-    }    
-  
-    
-    
-    private void setRotate(Circle c, boolean reverce, int angle, int duration){
+        slider(r1, 150, 1);
+        slider(r2, -100, 1.2);
+        slider(r3, 100, 1.2);
+        slider(r4, -135, 1);
+        new SplashScreen().start();
+    }
+
+    class SplashScreen extends Thread {
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(6000);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        Parent root = null;
+                        try {
+                            root = FXMLLoader.load(SplashScreen.this.getClass().getResource("FXMLDocument.fxml"));
+                        } catch (IOException e) {
+                            System.out.println(e.getMessage());
+                        }
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.show();
+
+                        apane.getScene().getWindow().hide();
+                    }
+                });
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+    }
+
+    private void setRotate(Circle c, boolean reverce, int angle, int duration) {
         RotateTransition rt = new RotateTransition(Duration.seconds(duration), c);
-        
+
         rt.setAutoReverse(reverce);
-        
+
         rt.setByAngle(angle);
         rt.setDelay(Duration.seconds(0));
         rt.setRate(4);
         rt.setCycleCount(10);
-        rt.play();          
+        rt.play();
     }
-    
-    public void slider(Circle r,double a,double duration  ) {
+
+    public void slider(Circle r, double a, double duration) {
 
         TranslateTransition tt = new TranslateTransition();
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import org.controlsfx.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import org.controlsfx.control.textfield.*?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mpan" stylesheets="@stiles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdf_reader.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mpan" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdf_reader.FXMLDocumentController">
    <children>
       <GridPane alignment="CENTER_LEFT" hgap="30.0" layoutX="2.0" layoutY="30.0" prefHeight="236.0" prefWidth="760.0" AnchorPane.bottomAnchor="334.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
         <columnConstraints>
@@ -25,18 +26,18 @@
           <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane fx:id="dragPdf" onDragDropped="#dropEvent" onDragEntered="#dragEnter" onDragExited="#dragExit" onDragOver="#dragOver" prefHeight="114.0" prefWidth="335.0" stylesheets="@stiles/style.css" GridPane.rowSpan="2147483647">
+            <AnchorPane fx:id="dragPdf" onDragDropped="#dropEvent" onDragEntered="#dragEnter" onDragExited="#dragExit" onDragOver="#dragOver" onMouseExited="#mExit1" prefHeight="114.0" prefWidth="335.0" styleClass="pan1" stylesheets="@styles/style.css" GridPane.rowSpan="2147483647">
                <children>
-                  <HBox alignment="CENTER" disable="true" prefHeight="237.0" prefWidth="368.0" styleClass="pan1" stylesheets="@stiles/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox alignment="CENTER" disable="true" prefHeight="237.0" prefWidth="368.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Group>
                            <children>
                               <ImageView fx:id="img" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="107.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="50.0">
                                  <image>
-                                    <Image url="@stiles/move.png" />
+                                    <Image url="@styles/mov.png" />
                                  </image>
                               </ImageView>
-                              <Text disable="true" layoutX="81.0" layoutY="130.0" opacity="0.5" stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag Folder Here" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="97.0">
+                              <Text disable="true" layoutX="81.0" layoutY="130.0" opacity="0.5" stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag PDF Here" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="97.0">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -46,19 +47,22 @@
                      </children>
                   </HBox>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </AnchorPane>
-            <AnchorPane fx:id="dragFile" onDragEntered="#dragEnterS" onDragExited="#dragExitS" prefHeight="51.0" prefWidth="98.0" stylesheets="@stiles/style.css" GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
+            <AnchorPane fx:id="dragFolder" onDragDropped="#dragDrop" onDragEntered="#dragEnterS" onDragExited="#dragExitS" onDragOver="#dragOv" onMouseExited="#mExit2" prefHeight="51.0" prefWidth="98.0" styleClass="pan1" stylesheets="@styles/style.css" GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
                <children>
-                  <HBox alignment="CENTER" layoutX="1.0" prefHeight="168.0" prefWidth="267.0" styleClass="pan1" stylesheets="@stiles/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox alignment="CENTER" layoutX="1.0" prefHeight="168.0" prefWidth="267.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Group>
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="454.0" layoutY="-152.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@stiles/moving.png" />
+                                    <Image url="@styles/moving.png" />
                                  </image>
                               </ImageView>
-                              <Text layoutX="431.0" layoutY="-65.0" opacity="0.5" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag PDF Here">
+                              <Text layoutX="431.0" layoutY="-65.0" opacity="0.5" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag Folder Here">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -70,24 +74,155 @@
                </children></AnchorPane>
          </children>
       </GridPane>
-      <Text fx:id="containBox" layoutX="167.0" layoutY="356.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="text" wrappingWidth="465.0" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="167.0">
-         <font>
-            <Font name="Berlin Sans FB" size="27.0" />
-         </font>
-      </Text>
-      <HBox alignment="CENTER" layoutY="492.0" prefHeight="88.0" prefWidth="800.0" spacing="300.0" AnchorPane.bottomAnchor="88.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutY="492.0" opacity="0.85" prefHeight="211.0" prefWidth="800.0" spacing="80.0" styleClass="bottomPanel" stylesheets="@styles/style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
-            <JFXComboBox fx:id="pagePerSideBox" prefHeight="47.0" prefWidth="165.0" promptText="Pages Per Side" style="-fx-background-size: 10;" stylesheets="@stiles/style.css" />
-            <JFXComboBox fx:id="sideCountBox" prefHeight="47.0" prefWidth="165.0" promptText="One Side / Double Side" styleClass="s" stylesheets="@stiles/style.css" />
+            <VBox alignment="CENTER_LEFT" prefHeight="211.0" prefWidth="309.0" spacing="30.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Page Count">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <JFXRadioButton fx:id="plus" contentDisplay="RIGHT" focusTraversable="false" graphicTextGap="0.0" prefHeight="25.0" prefWidth="20.0" text="+" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="group" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="minus" contentDisplay="RIGHT" focusTraversable="false" graphicTextGap="0.0" text="-" textFill="WHITE" toggleGroup="$group">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
+                        </JFXRadioButton>
+                        <TextField fx:id="changePgCount" alignment="CENTER" onKeyReleased="#released" onMouseEntered="#mEnterChangeCount" prefHeight="25.0" prefWidth="55.0" promptText="Opt." styleClass="scount" stylesheets="@styles/style.css">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="8.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Copy">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="noOfCopyBox" alignment="CENTER" onMouseEntered="#mEnter" prefHeight="25.0" prefWidth="125.0" promptText="Optional" styleClass="scount" stylesheets="@styles/style.css">
+                           <HBox.margin>
+                              <Insets left="41.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="8.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pages / Items Per Side">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="pagePerSideBox" prefHeight="25.0" prefWidth="122.0" promptText="Select" styleClass="scount" stylesheets="@styles/style.css" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="262.0" spacing="8.0">
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Side">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="sideCountBox" prefHeight="25.0" prefWidth="124.0" promptText="Select" styleClass="scount" stylesheets="@styles/style.css">
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="211.0" prefWidth="89.0" spacing="20.0">
+               <children>
+                  <StackPane prefHeight="40.0" prefWidth="62.0">
+                     <children>
+                        <JFXButton fx:id="abtn" buttonType="RAISED" onMouseClicked="#add" prefWidth="70.0" styleClass="btn2" stylesheets="@styles/style.css" text="Add">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="sbtn" buttonType="RAISED" onMouseClicked="#mclick" prefWidth="70.0" styleClass="btn2" stylesheets="@styles/style.css" text="Save">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </StackPane>
+                  <JFXButton buttonType="RAISED" onMouseClicked="#imprt" prefWidth="70.0" styleClass="btn2" stylesheets="@styles/style.css" text="Import">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton onAction="#clic" prefHeight="38.0" prefWidth="70.0" styleClass="btn" stylesheets="@styles/style.css" text="Ok" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font></JFXButton>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <CustomTextField fx:id="pageCountBox" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="274.0" promptText="Sheet Count">
+                     <font>
+                        <Font name="Eras Bold ITC" size="21.0" />
+                     </font>
+                  </CustomTextField>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </VBox>
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" layoutX="2.0" layoutY="512.0" prefHeight="88.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="18.0" layoutY="278.0" prefHeight="79.0" prefWidth="476.0" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
-            <CustomTextField fx:id="pageCountBox" editable="false" prefHeight="40.0" prefWidth="274.0" text="You want 55 Sheets">
-               <font>
-                  <Font name="Eras Bold ITC" size="21.0" />
-               </font>
-            </CustomTextField>
+            <VBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="341.0" spacing="10.0">
+               <children>
+                  <Text fx:id="containBox" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="334.0">
+                     <font>
+                        <Font name="Britannic Bold" size="21.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="colorPages" fill="#aea6a6" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="334.0">
+                     <font>
+                        <Font name="Yu Gothic UI Light" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="300.0">
+               <children>
+                  <Text fx:id="changeDetail" fill="#939394" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="355.0">
+                     <font>
+                        <Font name="Britannic Bold" size="21.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>
