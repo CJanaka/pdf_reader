@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="apane" prefHeight="239.0" prefWidth="400.0" styleClass="apane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pdf_reader.controls.FXMLController">
+    <children>
+      <ImageView fitHeight="260.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pdf_reader/styles/back.jpg" />
+         </image>
+      </ImageView>
+        <Pane fx:id="vline" layoutX="31.0" prefHeight="250.0" prefWidth="4.0" styleClass="vline" stylesheets="@stiles/style.css" />
+        <Pane fx:id="hline" layoutY="211.0" prefHeight="4.0" prefWidth="400.0" styleClass="hline" stylesheets="@stiles/style.css" />
+        <StackPane layoutX="115.0" layoutY="108.0" prefHeight="45.0" prefWidth="170.0">
+            <children>
+                <Circle fx:id="r1" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="bal">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop color="WHITE" />
+                                <Stop color="WHITE" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Circle>
+                <Circle fx:id="r2" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="bal">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop color="WHITE" />
+                                <Stop color="WHITE" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Circle>
+                <Circle fx:id="r3" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="bal">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop color="WHITE" />
+                                <Stop color="WHITE" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Circle>
+                <Circle fx:id="r4" opacity="0.28" radius="15.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="bal">
+                    <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop color="WHITE" />
+                                <Stop color="WHITE" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Circle>
+            </children>
+        </StackPane>
+        <Text fill="#e4d3d3" layoutX="67.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright © CJ INNOVS, 2022,  All rights reserved">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="56.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page Counter">
+            <font>
+                <Font name="Bauhaus 93" size="36.0" />
+            </font>
+        </Text>
+        <Text fill="#c3b4b4" layoutX="56.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Version 1.0">
+            <font>
+                <Font name="System Bold Italic" size="13.0" />
+            </font>
+        </Text>
+        <Text fill="#d0c4c4" layoutX="165.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opening...">
+            <font>
+                <Font name="Lucida Sans Typewriter Bold" size="15.0" />
+            </font>
+        </Text>
+    </children>
+   <stylesheets>
+      <URL value="@stiles/style.css" />
+      <URL value="@../../../pdf_reader/styles/style.css" />
+   </stylesheets>
+</AnchorPane>

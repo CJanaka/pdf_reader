@@ -1,11 +1,12 @@
 .hline{
-    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0, #FFCC70);
+    -fx-background-color:  linear-gradient(to right top, #FFCC70, #C850C0, #FFCC70);
 }
 .vline{
-    -fx-background-color:  linear-gradient(to right top, #4158D0, #C850C0);
+    -fx-background-color:  linear-gradient(to right top, #FFCC70, #C850C0);
 }
 .bal{
-    -fx-fill: linear-gradient(to left top, #4158D0, #C850C0);
+    -fx-fill: linear-gradient(to left top, #2f0707, #c92020);
+    -fx-opacity: 0.5;
 }
 .pan{
     -fx-background-color: #46cd80;

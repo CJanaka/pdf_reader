@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/pdf_reader/styles/style.css</file>
-            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/pdf_reader/Calculate.java</file>
-            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/pdf_reader/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/pdf_reader/Pdf_reader.java</file>
-            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/pdf_reader/FolderDrager.java</file>
-            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/pdf_reader/Container.java</file>
+            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/com/pdf_reader/controls/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/Jana/Documents/NetBeansProjects/pdf_reader/src/com/pdf_reader/controls/FXMLController.java</file>
         </group>
     </open-files>
 </project-private>

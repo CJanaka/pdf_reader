@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import org.controlsfx.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import org.controlsfx.control.textfield.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mpan" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdf_reader.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="mpan" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pdf_reader.controls.FXMLDocumentController">
    <children>
       <GridPane alignment="CENTER_LEFT" hgap="30.0" layoutX="2.0" layoutY="30.0" prefHeight="236.0" prefWidth="760.0" AnchorPane.bottomAnchor="334.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0">
         <columnConstraints>
@@ -34,7 +43,7 @@
                            <children>
                               <ImageView fx:id="img" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="107.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="50.0">
                                  <image>
-                                    <Image url="@styles/mov.png" />
+                                    <Image url="@../../../pdf_reader/styles/mov.png" />
                                  </image>
                               </ImageView>
                               <Text disable="true" layoutX="81.0" layoutY="130.0" opacity="0.5" stroke="#fcfcfc" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag PDF Here" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="97.0">
@@ -59,7 +68,7 @@
                            <children>
                               <ImageView fitHeight="150.0" fitWidth="180.0" layoutX="454.0" layoutY="-152.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@styles/moving.png" />
+                                    <Image url="@../../../pdf_reader/styles/moving.png" />
                                  </image>
                               </ImageView>
                               <Text layoutX="431.0" layoutY="-65.0" opacity="0.5" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="3.0" text="Drag Folder Here">
@@ -135,7 +144,10 @@
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <ComboBox fx:id="pagePerSideBox" prefHeight="25.0" prefWidth="122.0" promptText="Select" styleClass="scount" stylesheets="@styles/style.css" />
+                        <ComboBox fx:id="pagePerSideBox" prefHeight="25.0" prefWidth="122.0" promptText="Select" styleClass="scount" stylesheets="@styles/style.css">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ComboBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="262.0" spacing="8.0">
@@ -149,6 +161,9 @@
                            <HBox.margin>
                               <Insets left="80.0" />
                            </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ComboBox>
                      </children>
                   </HBox>
@@ -170,6 +185,9 @@
                            <font>
                               <Font size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
                      </children>
                   </StackPane>
@@ -177,11 +195,17 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton onAction="#clic" prefHeight="38.0" prefWidth="70.0" styleClass="btn" stylesheets="@styles/style.css" text="Ok" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
-                     </font></JFXButton>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></JFXButton>
                </children>
             </VBox>
             <VBox alignment="CENTER">
@@ -226,4 +250,8 @@
          </children>
       </HBox>
    </children>
+   <stylesheets>
+      <URL value="@styles/style.css" />
+      <URL value="@../../../pdf_reader/styles/style.css" />
+   </stylesheets>
 </AnchorPane>
