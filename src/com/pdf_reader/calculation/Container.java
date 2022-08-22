@@ -44,7 +44,6 @@ public class Container {
     public int docCount(List<File> files) {
         int count = 0;
         String status = "";
-        //List<File> files = fil;
         try {
 
             for (File file : files) {
@@ -103,6 +102,7 @@ public class Container {
                 List<PDDocument> pages = splitter.split(docu);
                 //Creating an iterator 
                 Iterator<PDDocument> iterator = pages.listIterator();
+                //get docu list's document and iterate it's page one by one
                 int i = 0;
                 while (iterator.hasNext()) {
                     docu = iterator.next();
@@ -114,8 +114,9 @@ public class Container {
                         //pageArray.add(empty);
                     }
                     i++;
+                    docu.close();
                 }
-                docu.close();
+
             }
             if (empty > 0) {
                 count -= empty;
@@ -127,12 +128,16 @@ public class Container {
             }
         } catch (IOException e) {
             LOG.warn(e.getMessage());
-        } 
+        }
+
+        for (PDDocument document : doc) {
+            document.close();
+        }
         return count;
-    }//done
+    }
 
     public int getExcelCount(List<File> file) {
-        
+
         System.out.println("EXCEL");
         int count = 0;
         FileInputStream fil;
@@ -179,7 +184,7 @@ public class Container {
         for (File f : file) {
             fil = new FileInputStream(new File(f.getAbsolutePath()));
             try {
-                dd = new XWPFDocument(fil);              
+                dd = new XWPFDocument(fil);
                 count += dd.getProperties().getExtendedProperties().getUnderlyingProperties().getPages();
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Container.class.getName()).log(Level.SEVERE, null, ex);

@@ -38,13 +38,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane dragPdf;
     @FXML
-    private Text containBox;
-    @FXML
     private ComboBox<Integer> pagePerSideBox;
     @FXML
     private ComboBox<String> sideCountBox;
     @FXML
-    private CustomTextField pageCountBox;
+    private CustomTextField sheetCountBox;
     @FXML
     private ImageView img;
     @FXML
@@ -67,6 +65,10 @@ public class FXMLDocumentController implements Initializable {
     private JFXButton abtn;
     @FXML
     private JFXButton sbtn;
+    @FXML
+    private JFXButton proBtn;
+    @FXML
+    private Text pageCountBox;
 
     int pageCount;
     int tempPageCount;
@@ -90,6 +92,8 @@ public class FXMLDocumentController implements Initializable {
         pagePerSideBox.getItems().add(16);
         pagePerSideBox.getSelectionModel().selectFirst();
         abtn.setVisible(false);
+        proBtn.setVisible(false);
+
     }
 
     @FXML
@@ -102,7 +106,15 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void dropEvent(DragEvent event) throws IOException {
         colorPages.setText("");
+        pageCountBox.setText("");
+        sheetCountBox.setText("");
         files = event.getDragboard().getFiles();
+        proBtn.setVisible(true);
+    }
+
+    @FXML
+    private void proBtnClicked(MouseEvent event) {
+        proBtn.setVisible(false);
         setupDocs();
     }
 
@@ -110,7 +122,7 @@ public class FXMLDocumentController implements Initializable {
         Container container = new Container();
         tempPageCount = container.docCount(files);
         pageCount = tempPageCount;
-        containBox.setText("File Contain " + String.valueOf(pageCount) + " Pages");
+        pageCountBox.setText("File Contain " + String.valueOf(pageCount) + " Pages");
         if (container.getColorPge() > 0) {
             colorPages.setText("File Contain " + String.valueOf(container.getColorPge()) + " Colour Pages");
         }
@@ -156,14 +168,15 @@ public class FXMLDocumentController implements Initializable {
         colorPages.setText("");
         files = event.getDragboard().getFiles();
         FolderDrager fd = new FolderDrager();
-        containBox.setText("This Folder Contain " + String.valueOf(fd.folderItemCount(files)) + " Files");
+        pageCountBox.setText("This Folder Contain " + String.valueOf(fd.folderItemCount(files)) + " Files");
         changeDetail.setText("");
     }
 
     @FXML
     private void clic(ActionEvent event) {
-
-        if (!sbtn.isVisible() && !importBtnType) {
+//ok btn click event
+        if (abtn.isVisible() || !importBtnType) {
+            //importbtntype = true, only when fier the importNewPages method
             int a = JOptionPane.showConfirmDialog(null, "You didn't import the changed page count. Do you want to import it?");
             if (a == 0) {
                 importNewPages();
@@ -197,7 +210,7 @@ public class FXMLDocumentController implements Initializable {
             if (((pluz || minuz) && changeCount > 0) || ((!pluz || !minuz) && changeCount == 0)) {
                 Calculate cal = new Calculate();
                 int sCount = cal.pagePerSheet(pageCount, pagePerS, noOfCopy, selectSide);
-                pageCountBox.setText("You want " + String.valueOf(sCount) + " Sheets");
+                sheetCountBox.setText("You want " + String.valueOf(sCount) + " Sheets");
             } else {
                 JOptionPane.showMessageDialog(null, "Tick the one of button and Enter the changing count");
             }
@@ -219,19 +232,6 @@ public class FXMLDocumentController implements Initializable {
         PauseTransition visiblePause = new PauseTransition(Duration.seconds(10));
         visiblePause.setOnFinished(eve -> changeDetail.setText(""));
         visiblePause.play();
-    }
-
-    public void clear() {
-        plus.setSelected(false);
-        minus.setSelected(false);
-        changePgCount.setText("");
-        noOfCopyBox.setText("");
-        sideCountBox.getSelectionModel().selectFirst();
-        pagePerSideBox.getSelectionModel().selectFirst();
-        pageCount = tempPageCount;
-        changeDetail.setText("");
-        abtn.setVisible(false);
-        sbtn.setVisible(true);
     }
 
     @FXML
@@ -273,10 +273,24 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void importNewPages() {
-
+        abtn.setVisible(false);
         importBtnType = true;
         pageCount = newPageCount;
         JOptionPane.showMessageDialog(null, "New page count imported !");
         changeDetail.setText("New page count is  " + newPageCount + " pages");
+    }
+
+    public void clear() {
+        plus.setSelected(false);
+        minus.setSelected(false);
+        changePgCount.setText("");
+        noOfCopyBox.setText("");
+        sideCountBox.getSelectionModel().selectFirst();
+        pagePerSideBox.getSelectionModel().selectFirst();
+        pageCount = tempPageCount;
+        changeDetail.setText("");
+        abtn.setVisible(false);
+        sbtn.setVisible(true);
+        proBtn.setVisible(false);
     }
 }

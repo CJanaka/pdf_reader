@@ -180,6 +180,9 @@
                            <font>
                               <Font size="14.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </JFXButton>
                         <JFXButton fx:id="sbtn" buttonType="RAISED" onMouseClicked="#mclick" prefWidth="70.0" styleClass="btn2" stylesheets="@styles/style.css" text="Save">
                            <font>
@@ -210,7 +213,7 @@
             </VBox>
             <VBox alignment="CENTER">
                <children>
-                  <CustomTextField fx:id="pageCountBox" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="274.0" promptText="Sheet Count">
+                  <CustomTextField fx:id="sheetCountBox" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="274.0" promptText="Sheet Count">
                      <font>
                         <Font name="Eras Bold ITC" size="21.0" />
                      </font>
@@ -222,33 +225,45 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="18.0" layoutY="278.0" prefHeight="79.0" prefWidth="476.0" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <StackPane layoutX="20.0" layoutY="278.0" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="341.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="79.0" prefWidth="476.0">
                <children>
-                  <Text fx:id="containBox" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="334.0">
-                     <font>
-                        <Font name="Britannic Bold" size="21.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="colorPages" fill="#aea6a6" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="334.0">
-                     <font>
-                        <Font name="Yu Gothic UI Light" size="20.0" />
-                     </font>
-                  </Text>
+                  <VBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="341.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="pageCountBox" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="334.0">
+                           <font>
+                              <Font name="Britannic Bold" size="21.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="colorPages" fill="#aea6a6" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="334.0">
+                           <font>
+                              <Font name="Yu Gothic UI Light" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="300.0">
+                     <children>
+                        <Text fx:id="changeDetail" fill="#939394" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="355.0">
+                           <font>
+                              <Font name="Britannic Bold" size="21.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="300.0">
-               <children>
-                  <Text fx:id="changeDetail" fill="#939394" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="355.0">
-                     <font>
-                        <Font name="Britannic Bold" size="21.0" />
-                     </font>
-                  </Text>
-               </children>
-            </VBox>
+            </HBox>
+            <JFXButton fx:id="proBtn" buttonType="RAISED" onMouseClicked="#proBtnClicked" prefHeight="48.0" prefWidth="264.0" styleClass="probtn" stylesheets="@../../../pdf_reader/styles/style.css" text="Process" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="27.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
          </children>
-      </HBox>
+      </StackPane>
    </children>
    <stylesheets>
       <URL value="@styles/style.css" />

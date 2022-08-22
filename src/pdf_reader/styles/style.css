@@ -44,3 +44,6 @@
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
+.probtn{
+   -fx-background-color:  linear-gradient(to right top, #d63448,#810a37);
+}
